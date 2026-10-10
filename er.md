@@ -5,7 +5,7 @@
 ```mermaid
 erDiagram
     PUBLISHER ||--o{ BOOK : publishes
-    AUTHOR }o--o{ BOOK : writes
+    AUTHOR }|--o{ BOOK : writes
     CATEGORY }o--o{ BOOK : classifies
     BOOK ||--|{ BOOK_COPY : "has copies"
     READER ||--o{ LOAN : borrows
