@@ -25,5 +25,5 @@
 - відкрив `er.md` на GitHub: діаграма відмалювалась і збігається з `model.mmd`.
 
 ## Здача
-(а) посилання на GitHub PR: _вставити_
-(б) цей заповнений DEFENSE.
+- (а) посилання на GitHub PR: https://github.com/aooxd/KPIlab_1/pull/1
+- (б) цей заповнений DEFENSE.
