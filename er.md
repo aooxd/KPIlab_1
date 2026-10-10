@@ -23,7 +23,7 @@ erDiagram
     }
     CATEGORY {
         int category_id PK
-        string name
+        string name UK
     }
     BOOK {
         int book_id PK
