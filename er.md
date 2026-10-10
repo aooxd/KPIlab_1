@@ -1,0 +1,55 @@
+# ER-діаграма
+
+Згенеровано з `model.mmd` (не редагувати вручну).
+
+```mermaid
+erDiagram
+    PUBLISHER ||--o{ BOOK : publishes
+    AUTHOR }o--o{ BOOK : writes
+    CATEGORY }o--o{ BOOK : classifies
+    BOOK ||--|{ BOOK_COPY : "has copies"
+    READER ||--o{ LOAN : borrows
+    BOOK_COPY ||--o{ LOAN : "is lent in"
+
+    AUTHOR {
+        int author_id PK
+        string full_name
+        int birth_year
+    }
+    PUBLISHER {
+        int publisher_id PK
+        string name
+        string country
+    }
+    CATEGORY {
+        int category_id PK
+        string name
+    }
+    BOOK {
+        int book_id PK
+        string isbn UK
+        string title
+        int publication_year
+        int publisher_id FK
+    }
+    BOOK_COPY {
+        int copy_id PK
+        string inventory_number UK
+        string condition
+        int book_id FK
+    }
+    READER {
+        int reader_id PK
+        string full_name
+        string email UK
+        date registered_at
+    }
+    LOAN {
+        int loan_id PK
+        int reader_id FK
+        int copy_id FK
+        date loaned_at
+        date due_date
+        date returned_at
+    }
+```
