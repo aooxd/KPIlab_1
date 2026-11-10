@@ -7,7 +7,7 @@ erDiagram
     PUBLISHER ||--o{ BOOK : publishes
     AUTHOR }|--o{ BOOK : writes
     CATEGORY }o--o{ BOOK : classifies
-    BOOK ||--|{ BOOK_COPY : "has copies"
+    BOOK ||--o{ BOOK_COPY : "has copies"
     READER ||--o{ LOAN : borrows
     BOOK_COPY ||--o{ LOAN : "is lent in"
 
@@ -19,12 +19,24 @@ erDiagram
     PUBLISHER {
         int publisher_id PK
         string name
+        string countryerDiagram
+    AUTHOR {
+        int author_id PK
+        string full_name
+        int birth_year
+    }
+
+    PUBLISHER {
+        int publisher_id PK
+        string name
         string country
     }
+
     CATEGORY {
         int category_id PK
         string name UK
     }
+
     BOOK {
         int book_id PK
         string isbn UK
@@ -32,18 +44,21 @@ erDiagram
         int publication_year
         int publisher_id FK
     }
+
     BOOK_COPY {
         int copy_id PK
         string inventory_number UK
         string condition
         int book_id FK
     }
+
     READER {
         int reader_id PK
         string full_name
         string email UK
         date registered_at
     }
+
     LOAN {
         int loan_id PK
         int reader_id FK
@@ -52,4 +67,11 @@ erDiagram
         date due_date
         date returned_at
     }
+
+    PUBLISHER ||--o{ BOOK : publishes
+    AUTHOR }|--o{ BOOK : writes
+    CATEGORY }o--o{ BOOK : classifies
+    BOOK ||--o{ BOOK_COPY : has
+    READER ||--o{ LOAN : borrows
+    BOOK_COPY ||--o{ LOAN : involves
 ```
